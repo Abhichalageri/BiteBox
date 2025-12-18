@@ -1,90 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>forget</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        body{
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url("im1.jpg");
-            background-repeat: no-repeat;
-            background-size: cover
-            
-        }
-        form{
-            height: 500px;
-            width: 300px;
-            border: 2px solid black;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            box-shadow: 2px 5px 5px black;
-            border: none;
-            backdrop-filter: blur(5px);
-            color:white;
-            margin-right: 5px;
-         
-        } button{
-            height: 40px;
-            width: 80%;
-            background-color: yellow;
-            color: red;
-            border: none;
-            border-radius: 20px;
-        }
-        input{
-            height: 30px;
-            width: 80%;
-            text-align: center;
-            font-size: 18px;
-        }
-        
-        a{
-            font-size: 20px;
-            text-decoration: none;
-        }
-        </style>
-        </head>
-        <body>
-            <form action="">
-                <h3>New passwoed</h3>
-                <input  
-  type="password" 
-  id="Password" 
-  name="Password"
-  placeholder="Enter Password"
-  title="Password must be at least 8 characters long, include uppercase, lowercase, a number, and a special character."
-  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
-  autocomplete="off"
-  required
-/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bite Box | Reset Password</title>
 
-                <h3> Confirm password</h3>
-                <input 
-  type="password" 
-  id="Password" 
-  name="Password"
-  placeholder="Enter Password"
-  title="Password must be at least 8 characters long, include uppercase, lowercase, a number, and a special character."
-  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
-  autocomplete="off"
-  required
-/>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-               
-                <button><a href="./log.html">submit</a></button>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
 
-            </form>
-        </body>
-        </html>
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+      url('im1.jpg') center/cover no-repeat;
+    }
+
+    .reset-box{
+      width:380px;
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(15px);
+      border-radius:20px;
+      padding:35px 30px;
+      color:white;
+      text-align:center;
+      animation:slideIn 1s ease;
+    }
+
+    @keyframes slideIn{
+      from{transform:translateY(40px); opacity:0;}
+      to{transform:translateY(0); opacity:1;}
+    }
+
+    .reset-box h2{
+      color:#ffcc00;
+      margin-bottom:5px;
+    }
+
+    .reset-box p{
+      font-size:14px;
+      margin-bottom:20px;
+      opacity:0.9;
+    }
+
+    input{
+      width:100%;
+      height:42px;
+      margin:10px 0;
+      border:none;
+      border-radius:25px;
+      padding:0 15px;
+      outline:none;
+      font-size:14px;
+    }
+
+    button{
+      width:100%;
+      height:45px;
+      margin-top:15px;
+      background:#ffcc00;
+      border:none;
+      border-radius:25px;
+      font-size:17px;
+      font-weight:600;
+      color:#b30000;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#ffaa00;
+      transform:scale(1.05);
+    }
+
+    a{
+      display:block;
+      margin-top:15px;
+      color:#00ffff;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    .food-icons{
+      font-size:32px;
+      margin-bottom:10px;
+      animation:float 3s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-8px);}
+      100%{transform:translateY(0);}
+    }
+
+  </style>
+</head>
+<body>
+
+  <form class="reset-box" action="log.html">
+    <div class="food-icons">🍔 🔐 🍕</div>
+    <h2>Reset Password</h2>
+    <p>Create a new password for your Bite Box account</p>
+
+    <input 
+      type="password" 
+      placeholder="New Password"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+      required
+    />
+
+    <input 
+      type="password" 
+      placeholder="Confirm Password"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+      required
+    />
+
+    <button>Update Password</button>
+
+    <a href="log.html">Back to Login</a>
+  </form>
+
+</body>
+</html>
