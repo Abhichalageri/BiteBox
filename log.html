@@ -1,104 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        body{
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url("im3.jpg");
-            background-repeat: no-repeat;
-            background-size: cover
-        }
-        form{
-            height: 600px;
-            width: 300px;
-            border: 2px solid black;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            box-shadow: 2px 5px 5px gray;
-            border: none;
-            color: white;
-            background-color: transparent;
-            backdrop-filter: blur(20px);
-        }
-        h2{
-            color: white;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bite Box | Login</title>
 
-        }
-        h3{
-            color: white;
-        }
-        button{
-            height: 40px;
-            width: 80%;
-            background-color: yellow;
-            color: red;
-            border: none;
-            border-radius: 20px;
-        }
-        input{
-            height: 30px;
-            width: 80%;
-            border: 2px solid black;
-            text-align: center;
-            font-size: 18px;
-            border-radius: 20px;
-        }
-       h4  a{
-            height: 25px;
-            width: 300px;
-            /* border: 2px solid black; */
-            display: flex;
-            justify-content: end;
-            text-decoration: none;
-        }
-        h5{
-            color: gray;
-        }
-        a{
-            color: gray;
-            text-decoration: none;
-        }
-        
-       
-    </style>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+      url('im3.jpg') center/cover no-repeat;
+    }
+
+    .login-container{
+      width:850px;
+      height:480px;
+      display:flex;
+      border-radius:20px;
+      overflow:hidden;
+      animation:fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform:scale(0.9);} 
+      to{opacity:1; transform:scale(1);} 
+    }
+
+    /* Left food panel */
+    .left-panel{
+      width:50%;
+      background:linear-gradient(135deg, #ffcc00, #ff9900);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      color:#8b0000;
+      text-align:center;
+      padding:30px;
+    }
+
+    .left-panel h1{
+      font-size:36px;
+      margin-bottom:10px;
+    }
+
+    .left-panel p{
+      font-size:16px;
+    }
+
+    .food-icons{
+      font-size:40px;
+      margin-top:20px;
+      animation:float 3s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0);} 
+      50%{transform:translateY(-10px);} 
+      100%{transform:translateY(0);} 
+    }
+
+    /* Right login panel */
+    .right-panel{
+      width:50%;
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(15px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      color:white;
+      padding:30px;
+    }
+
+    .right-panel h2{
+      margin-bottom:5px;
+      color:#ffcc00;
+    }
+
+    .right-panel p{
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    input{
+      width:80%;
+      height:42px;
+      margin:10px 0;
+      border:none;
+      border-radius:25px;
+      padding:0 15px;
+      outline:none;
+      font-size:14px;
+    }
+
+    button{
+      width:80%;
+      height:45px;
+      margin-top:15px;
+      background:#ffcc00;
+      border:none;
+      border-radius:25px;
+      font-size:18px;
+      font-weight:600;
+      color:#b30000;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#ffaa00;
+      transform:scale(1.05);
+    }
+
+    .links{
+      width:80%;
+      display:flex;
+      justify-content:space-between;
+      margin-top:12px;
+      font-size:13px;
+    }
+
+    .links a{
+      color:#00ffff;
+      text-decoration:none;
+    }
+
+    .links a:hover{
+      text-decoration:underline;
+    }
+
+    @media(max-width:900px){
+      .login-container{
+        flex-direction:column;
+        width:90%;
+        height:auto;
+      }
+      .left-panel, .right-panel{
+        width:100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <form action="book.html">
-        <h2>Welcome Back <br><h5>Login to your Account</h5></h2>
-        
-        <h3>Username</h3>
-            <input type="text" placeholder="Username /Email">
-            <h3>Password</h3>
-           <input 
-  type="password" 
-  id="Password" 
-  name="Password"
-  placeholder="Enter Password"
-  title="Password must be at least 8 characters long, include uppercase, lowercase, a number, and a special character."
-  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
-  autocomplete="off"
-  required
-/>
 
-           <h4><a href="forget.html">Forget pssword</a></h4>
-            <button >Login</button>
-        <section>
-            <a href="./reg.html">New Rigester></a></section>
-        </from>
+  <form class="login-container" action="book.html">
+
+    <!-- Left Side -->
+    <div class="left-panel">
+      <h1>🍔 Bite Box</h1>
+      <p>Delicious food delivered to your door</p>
+      <div class="food-icons">🍕 🍟 🍗</div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="right-panel">
+      <h2>Welcome Back</h2>
+      <p>Login to your Bite Box account</p>
+
+      <input type="text" placeholder="Username or Email" required>
+
+      <input type="password" placeholder="Password" required>
+
+      <div class="links">
+        <a href="forget.html">Forgot password?</a>
+        <a href="reg.html">New user? Register</a>
+      </div>
+
+      <button>Login</button>
+    </div>
+
+  </form>
+
 </body>
 </html>
